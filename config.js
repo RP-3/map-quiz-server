@@ -10,7 +10,7 @@ module.exports = {
     connection: {
       host: '127.0.0.1',
       //user: 'sarith21',
-      database: 'mappify_accounts'
+      database: 'mapquiz'
     }
     //port: 5432 //not required... smart PG default?
   },

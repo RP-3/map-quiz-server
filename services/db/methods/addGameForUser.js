@@ -108,7 +108,7 @@ module.exports = function(knex){
             q.push("WITH rank AS (");
             q.push("  SELECT t.*,");
             q.push("    ROW_NUMBER() OVER(ORDER BY t.lives_remaining DESC, t.length_in_seconds ASC) AS position");
-            q.push("  FROM games t WHERE challenge = TRUE)");
+            q.push("  FROM games t WHERE challenge = TRUE AND continent_id = " + savedGame.continent_id + ")");
             q.push("SELECT s.*");
             q.push("  FROM rank s");
             q.push("WHERE s.identifier = '" + savedGame.identifier + "';");

@@ -11,19 +11,19 @@ module.exports = function(services){
       user_secret: req.body.user_secret
     })
     .then(function(user){
-      return db.rankGamesForUser(req.body, user.id);
+      return services.db.addGameForUser(req.body, user.id);
     })
     .then(function(data){
       return res
       .status(200)
       .json(data);
     })
-    .catch(function(err){
-      services.logger.log(err);
-      res
-      .status(400)
-      .send(err.message);
-    });
+    // .catch(function(err){
+    //   services.logger.log(err);
+    //   res
+    //   .status(400)
+    //   .send(err.message);
+    // });
 
   });
 
@@ -34,19 +34,19 @@ module.exports = function(services){
       user_secret: req.body.user_secret
     })
     .then(function(user){
-      return db.rankGamesForUser(user.id);
+      return services.db.rankGamesForUser(user.id);
     })
     .then(function(data){
       return res
       .status(200)
       .json(data);
     })
-    .catch(function(err){
-      services.logger.log(err);
-      res
-      .status(400)
-      .send(err.message);
-    });
+    // .catch(function(err){
+    //   services.logger.log(err);
+    //   res
+    //   .status(400)
+    //   .send(err.message);
+    // });
 
   });
 
@@ -58,12 +58,12 @@ module.exports = function(services){
       .status(200)
       .json(data);
     })
-    .catch(function(err){
-      services.logger.log(err);
-      res
-      .status(400)
-      .send(err.message);
-    });
+    // .catch(function(err){
+    //   services.logger.log(err);
+    //   res
+    //   .status(400)
+    //   .send(err.message);
+    // });
 
   });
 
